@@ -28,7 +28,6 @@ class MenuData:
             recipes[dish].add_ingredient_dependency(new_ing, ing_qty)
         return set(recipes.values())
 
-
 # Obs.: o código abaixo NÃO funcionou para fazer o set de ingredientes:
 # new_dish.add_ingredient_dependency(new_ing, ing_qty)
 # recipes[dish].append(tuple(new_dish.recipe))

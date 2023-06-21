@@ -26,4 +26,17 @@ class MenuBuilder:
 
     # Req 4
     def get_main_menu(self, restriction=None) -> List[Dict]:
-        pass
+        # Obs.: o retorno de MenuData é uma lista com instâncias de Dish
+        # usar os métodos disponíveis na classe
+        the_menu = []
+        for dish_instance in self.menu_data.dishes:
+            new_menu = {
+                "dish_name": dish_instance.name,
+                "ingredients": dish_instance.get_ingredients(),
+                "price": dish_instance.price,
+                "restrictions": dish_instance.get_restrictions(),
+                }
+            dish_restrictions = new_menu.get('restrictions', set())
+            if restriction is None or restriction not in dish_restrictions:
+                the_menu.append(new_menu)
+        return the_menu
